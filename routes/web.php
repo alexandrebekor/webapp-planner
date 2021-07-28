@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [AdminController::class, 'home']);
-Route::resource('clients', ClientController::class);
-Route::resource('projects', ProjectController::class);
-Route::resource('tasks', TaskController::class);
+Route::get('/', [WebController::class, 'home']);
+
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.'
+], function(){
+    Route::get('/', [AdminController::class, 'home']);
+    Route::resource('clients', ClientController::class);
+    Route::resource('projects', ProjectController::class);
+    Route::resource('tasks', TaskController::class);
+});
