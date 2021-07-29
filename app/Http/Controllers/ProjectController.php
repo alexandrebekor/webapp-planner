@@ -31,6 +31,13 @@ class ProjectController extends Controller
         ]);
     }
 
+    public function createTask(Project $project)
+    {
+        return view('admin.task.create', [
+            'project' => $project
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -18,7 +18,7 @@
                     <td>{{ $project->description }}</td>
                     <td>{{ $project->type }}</td>
                     <td>{{ $project->status }}</td>
-                    <td>{{ route('admin.tasks.project', [$project->id]) }}</td>
+                    <td>{{ route('admin.projects.task', [$project->id]) }}</td>
                 </tr>
             @endforeach
         </tbody>

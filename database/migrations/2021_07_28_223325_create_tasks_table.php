@@ -21,8 +21,8 @@ class CreateTasksTable extends Migration
             $table->date('do_at')->nullable();
             $table->string('type')->nullable();
             $table->string('status')->nullable();
-            $table->foreignId('client_id')->constrained()->nullable();
-            $table->foreignId('project_id')->constrained()->nullable();
+            $table->foreignId('client_id')->nullable()->constrained();
+            $table->foreignId('project_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

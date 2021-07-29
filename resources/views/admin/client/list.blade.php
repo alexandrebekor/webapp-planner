@@ -12,7 +12,7 @@
             @foreach ($clients as $client)
                 <tr>
                     <td>{{ $client->name }}</td>
-                    <td><a href="{{ route('admin.tasks.client', [$client->id]) }}">Adicionar Tarefa</a></td>
+                    <td><a href="{{ route('admin.clients.task', [$client->id]) }}">Adicionar Tarefa</a></td>
                 </tr>
             @endforeach
         </tbody>

@@ -35,6 +35,4 @@
 
         <button type="submit">Salvar</button>
     </form>
-
-    <a href="{{ route('admin.tasks.option', ['project']) }}">Adicionar Tarefa</a>
 @endsection

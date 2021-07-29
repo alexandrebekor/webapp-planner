@@ -30,7 +30,7 @@ Route::group([
     Route::get('clients/{client}/task', [ClientController::class, 'createTask'])->name('clients.task');
     
     Route::resource('projects', ProjectController::class);
-    Route::get('projects/{client}/task', [ProjectController::class, 'createTask'])->name('projects.task');
+    Route::get('projects/{project}/task', [ProjectController::class, 'createTask'])->name('projects.task');
     
     Route::resource('tasks', TaskController::class);
 });

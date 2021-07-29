@@ -30,6 +30,13 @@ class ClientController extends Controller
         return view('admin.client.create');
     }
 
+    public function createTask(Client $client)
+    {
+        return view('admin.task.create', [
+            'client' => $client
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

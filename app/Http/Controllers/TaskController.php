@@ -26,14 +26,7 @@ class TaskController extends Controller
      */
     public function create(string $option)
     {
-        if($option == 'client') {
-            $options = Client::all();
-        } else {
-            $options = Project::all();
-        }
-        return view('admin.task.create', [
-            'options' => $options
-        ]);
+        //
     }
 
     /**
@@ -44,7 +37,18 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = new Task();
+        $task->client_id = $request->client_id;
+        $task->project_id = $request->project_id;
+        $task->title = $request->title;
+        $task->description = $request->description;
+        $task->price = $request->price;
+        $task->do_at = $request->do_at;
+        $task->type = $request->type;
+        $task->status = $request->status;
+        $task->save();
+
+        return redirect('admin');
     }
 
     /**
