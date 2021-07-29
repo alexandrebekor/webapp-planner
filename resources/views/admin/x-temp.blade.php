@@ -9,7 +9,7 @@
 </head>
 <body>
     <header></header>
-    <main>
+    <main class="bg-gray-100 min-h-screen">
         @yield('content')
     </main>
     <footer></footer>

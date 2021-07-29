@@ -49,7 +49,7 @@ class ClientController extends Controller
         $client->name = $request->name;
         $client->save();
 
-        return redirect('admin');
+        return redirect()->route('admin.clients.index');
     }
 
     /**
@@ -94,6 +94,8 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+
+        return redirect()->route('admin.clients.index');
     }
 }
