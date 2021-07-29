@@ -24,7 +24,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.client.create');
     }
 
     /**
@@ -35,7 +35,11 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client = new Client();
+        $client->name = $request->name;
+        $client->save();
+
+        return redirect('admin');
     }
 
     /**
