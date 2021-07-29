@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
+use App\Models\Project;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -22,9 +24,16 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(string $option)
     {
-        //
+        if($option == 'client') {
+            $options = Client::all();
+        } else {
+            $options = Project::all();
+        }
+        return view('admin.task.create', [
+            'options' => $options
+        ]);
     }
 
     /**
