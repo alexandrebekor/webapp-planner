@@ -1,15 +1,13 @@
 steps:
-
-  # Build the container image
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/agencia-bekor/webapp-planner:$SHORT_SHA', '-f','Dockerfile.prod','.']
-
-  # Pushing the container image to Container Registry
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/agencia-bekor/webapp-planner:$SHORT_SHA']
-
-  # Deploy container image to Cloud Run
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run', 'deploy', 'webapp-planner', '--image', 'gcr.io/agencia-bekor/webapp-planner:$SHORT_SHA', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
-  images:
-  - gcr.io/agencia-bekor/webapp-planner
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/agencia-bekor/webapp-planner', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/agencia-bekor/webapp-planner']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'SERVICE-NAME', '--image', 'gcr.io/agencia-bekor/webapp-planner', '--region', 'REGION', '--platform', 'managed']
+images:
+- gcr.io/agencia-bekor/webapp-planner
