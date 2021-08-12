@@ -1,7 +1,7 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/agencia-bekor/webapp-planner', '-f','Dockerfile.prod','.']
+  args: ['build', '-t', 'gcr.io/agencia-bekor/webapp-planner','.']
 # Running container
 - name: 'docker'
   args: ['run','-d', '--name','webapp-planner','gcr.io/agencia-bekor/webapp-planner']
