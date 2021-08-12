@@ -6,7 +6,7 @@ steps:
 - name: 'docker'
   args: ['run','-d', '--name','webapp-planner','gcr.io/agencia-bekor/webapp-planner']
 - name: 'docker'
-  args: ['exec','php', 'artisan', 'config:cache']
+  args: ['exec', 'app','php', 'artisan', 'route:list']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/agencia-bekor/webapp-planner']
