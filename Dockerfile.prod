@@ -40,8 +40,3 @@ RUN php artisan view:cache
 WORKDIR /var/www
 
 USER $user
-
-# # Copia o arquivo .env de produção
-# RUN mv .env.prod .env
-
-# RUN chown -R www-data:www-data /var/www/html
